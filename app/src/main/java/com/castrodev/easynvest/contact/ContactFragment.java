@@ -6,9 +6,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.castrodev.easynvest.R;
+import com.castrodev.easynvest.factory.ViewFactory;
+import com.castrodev.easynvest.model.Cell;
+import com.castrodev.easynvest.model.ContactScreenData;
+import com.castrodev.easynvest.repository.Repository;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -16,6 +22,9 @@ import butterknife.ButterKnife;
  */
 
 public class ContactFragment extends Fragment implements ContactContract.View {
+
+    @BindView(R.id.root_view_contact)
+    LinearLayout rootViewContact;
 
     private ContactContract.UserActionsListener mActionListener;
 
@@ -50,6 +59,15 @@ public class ContactFragment extends Fragment implements ContactContract.View {
     }
 
     private void setupView() {
+
+        ContactScreenData contactScreenData = Repository.providesContactRepository().getContactScreenData(getContext());
+
+        for (Cell cell : contactScreenData.getCells()) {
+            if (cell.getType() == Cell.EDIT_TEXT || cell.getType() == Cell.TEXT_VIEW) {
+                rootViewContact.addView(ViewFactory.createView(getContext(), cell));
+            }
+        }
+
     }
 
     @Override

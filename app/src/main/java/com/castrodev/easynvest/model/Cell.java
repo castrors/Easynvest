@@ -1,13 +1,36 @@
 
 package com.castrodev.easynvest.model;
 
+import android.support.annotation.IntDef;
+import android.support.annotation.StringDef;
+
 import com.google.gson.annotations.SerializedName;
 
+import java.lang.annotation.Retention;
+
 import javax.annotation.Generated;
+
+import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 @Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
 public class Cell {
+
+    @Retention(SOURCE)
+    @IntDef({EDIT_TEXT, TEXT_VIEW, IMAGE_VIEW, CHECK_BOX, BUTTON})
+    public @interface ViewType {}
+    public static final int EDIT_TEXT = 1;
+    public static final int TEXT_VIEW = 2;
+    public static final int IMAGE_VIEW = 3;
+    public static final int CHECK_BOX = 4;
+    public static final int BUTTON = 5;
+
+    @Retention(SOURCE)
+    @StringDef({DEFAULT, EMAIL, PHONE})
+    public @interface InputType {}
+    public static final String DEFAULT = "default";
+    public static final String EMAIL = "email";
+    public static final String PHONE = "telnumber";
 
     @SerializedName("hidden")
     private Boolean hidden;
@@ -22,11 +45,11 @@ public class Cell {
     @SerializedName("topSpacing")
     private Double topSpacing;
     @SerializedName("type")
-    private Long type;
+    private int type;
     @SerializedName("typefield")
-    private Object typefield;
+    private String typefield;
 
-    public Boolean getHidden() {
+    public Boolean isHidden() {
         return hidden;
     }
 
@@ -74,19 +97,21 @@ public class Cell {
         this.topSpacing = topSpacing;
     }
 
-    public Long getType() {
+    @ViewType
+    public int getType() {
         return type;
     }
 
-    public void setType(Long type) {
+    public void setType(@ViewType int type) {
         this.type = type;
     }
 
-    public Object getTypefield() {
+    @InputType
+    public String getTypefield() {
         return typefield;
     }
 
-    public void setTypefield(Object typefield) {
+    public void setTypefield(@InputType String typefield) {
         this.typefield = typefield;
     }
 

@@ -22,9 +22,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 //        InvestmentScreenData investmentScreenData = Repository.providesInvestmentRepository().getInvestmentScreenData(this);
-//        ContactScreenData contactScreenData = Repository.providesContactRepository().getContactScreenData(this);
-
-
+        
         setupViewPagerAndTabs();
     }
 
