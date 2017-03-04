@@ -7,6 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.castrodev.easynvest.model.ContactScreenData;
+import com.castrodev.easynvest.model.InvestmentScreenData;
+import com.castrodev.easynvest.repository.Repository;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
@@ -33,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        InvestmentScreenData investmentScreenData = Repository.providesInvestmentRepository().getInvestmentScreenData(this);
+        ContactScreenData contactScreenData = Repository.providesContactRepository().getContactScreenData(this);
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
