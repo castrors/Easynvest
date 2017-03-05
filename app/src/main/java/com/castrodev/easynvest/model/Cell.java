@@ -2,7 +2,6 @@
 package com.castrodev.easynvest.model;
 
 import android.support.annotation.IntDef;
-import android.support.annotation.StringDef;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -26,11 +25,11 @@ public class Cell {
     public static final int BUTTON = 5;
 
     @Retention(SOURCE)
-    @StringDef({DEFAULT, EMAIL, PHONE})
+    @IntDef({DEFAULT, EMAIL, PHONE})
     public @interface InputType {}
-    public static final String DEFAULT = "default";
-    public static final String EMAIL = "email";
-    public static final String PHONE = "telnumber";
+    public static final int DEFAULT = 1;
+    public static final int PHONE = 2;
+    public static final int EMAIL = 3;
 
     @SerializedName("hidden")
     private Boolean hidden;
@@ -47,7 +46,7 @@ public class Cell {
     @SerializedName("type")
     private int type;
     @SerializedName("typefield")
-    private String typefield;
+    private int typefield;
 
     public Boolean isHidden() {
         return hidden;
@@ -107,11 +106,11 @@ public class Cell {
     }
 
     @InputType
-    public String getTypefield() {
+    public int getTypefield() {
         return typefield;
     }
 
-    public void setTypefield(@InputType String typefield) {
+    public void setTypefield(@InputType int typefield) {
         this.typefield = typefield;
     }
 

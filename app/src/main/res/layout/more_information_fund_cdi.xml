@@ -1,0 +1,98 @@
+<android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorAccent"
+    android:padding="16dp"
+    app:columnCount="3">
+
+    <android.support.v4.widget.Space
+        android:layout_height="match_parent"
+        app:layout_columnSpan="1"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="3" />
+
+
+    <TextView
+        android:gravity="center_horizontal"
+        android:text="@string/fund"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill_horizontal"
+        app:layout_rowWeight="1" />
+
+    <TextView
+        android:gravity="center_horizontal"
+        android:text="@string/cdi"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill_horizontal"
+        app:layout_rowWeight="1" />
+
+    <TextView
+        android:text="@string/monthly"
+        app:layout_columnWeight="2"
+        app:layout_gravity="fill_horizontal"
+        app:layout_rowWeight="1" />
+
+    <TextView
+        android:id="@+id/monthly_fund_value"
+        android:gravity="center_horizontal"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill_horizontal"
+        app:layout_rowWeight="1"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@+id/monthly_cdi_value"
+        android:gravity="center_horizontal"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill_horizontal"
+        app:layout_rowWeight="1"
+        tools:text="0,3%" />
+
+    <TextView
+        android:text="@string/yearly"
+        app:layout_columnWeight="2"
+        app:layout_gravity="fill_horizontal"
+        app:layout_rowWeight="1" />
+
+    <TextView
+        android:id="@+id/yearly_fund_value"
+        android:gravity="center_horizontal"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill_horizontal"
+        app:layout_rowWeight="1"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@+id/yearly_cdi_value"
+        android:gravity="center_horizontal"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill_horizontal"
+        app:layout_rowWeight="1"
+        tools:text="0,3%" />
+
+    <TextView
+        android:text="@string/twelve_months"
+        app:layout_columnWeight="2"
+        app:layout_gravity="fill_horizontal"
+        app:layout_rowWeight="1" />
+
+    <TextView
+        android:id="@+id/twelve_months_fund_value"
+        android:gravity="center_horizontal"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill_horizontal"
+        app:layout_rowWeight="1"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@+id/twelve_months_cdi_value"
+        android:gravity="center_horizontal"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill_horizontal"
+        app:layout_rowWeight="1"
+        tools:text="0,3%" />
+
+
+</android.support.v7.widget.GridLayout>

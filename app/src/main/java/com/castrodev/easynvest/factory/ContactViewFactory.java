@@ -16,13 +16,11 @@ import com.castrodev.easynvest.R;
 import com.castrodev.easynvest.model.Cell;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
-
 /**
  * Created by rodrigocastro on 04/03/17.
  */
 
-public class ViewFactory {
+public class ContactViewFactory {
     public static View createView(final Context context, final Cell cell, final LinearLayout rootView) {
         View view = null;
         switch (cell.getType()) {
@@ -73,7 +71,7 @@ public class ViewFactory {
         return view;
     }
 
-    private static int getInputType(@Cell.InputType String typefield) {
+    private static int getInputType(@Cell.InputType int typefield) {
         switch (typefield) {
             case Cell.DEFAULT:
                 return android.text.InputType.TYPE_CLASS_TEXT;
@@ -109,6 +107,4 @@ public class ViewFactory {
                 LinearLayout.LayoutParams.WRAP_CONTENT);
     }
 
-    public static void createViews(Context context, List<Cell> cells) {
-    }
 }

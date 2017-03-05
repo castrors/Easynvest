@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.castrodev.easynvest.R;
-import com.castrodev.easynvest.contact.ContactFragment;
 
 import butterknife.ButterKnife;
 
@@ -19,8 +18,8 @@ import butterknife.ButterKnife;
 public class InvestmentFragment extends Fragment implements InvestmentContract.View {
     private InvestmentContract.UserActionsListener mActionListener;
 
-    public static ContactFragment newInstance() {
-        return new ContactFragment();
+    public static InvestmentFragment newInstance() {
+        return new InvestmentFragment();
     }
 
     public InvestmentFragment() {

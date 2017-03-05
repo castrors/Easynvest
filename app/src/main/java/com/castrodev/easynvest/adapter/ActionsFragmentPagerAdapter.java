@@ -14,8 +14,8 @@ import com.castrodev.easynvest.investment.InvestmentFragment;
 
 public class ActionsFragmentPagerAdapter extends FragmentPagerAdapter {
 
-    private static final String TAB_INVESTMENT = "INVESTMENT";
-    private static final String TAB_CONTACT = "CONTACT";
+    private static final String TAB_INVESTMENT = "INVESTMENTO";
+    private static final String TAB_CONTACT = "CONTATO";
 
     private static final int POSITION_INVESTMENT = 0;
     private static final int POSITION_CONTACT = 1;

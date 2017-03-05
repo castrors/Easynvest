@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.castrodev.easynvest.R;
-import com.castrodev.easynvest.factory.ViewFactory;
+import com.castrodev.easynvest.factory.ContactViewFactory;
 import com.castrodev.easynvest.model.Cell;
 import com.castrodev.easynvest.model.ContactScreenData;
 import com.castrodev.easynvest.repository.Repository;
@@ -63,7 +63,7 @@ public class ContactFragment extends Fragment implements ContactContract.View {
         ContactScreenData contactScreenData = Repository.providesContactRepository().getContactScreenData(getContext());
 
         for (Cell cell : contactScreenData.getCells()) {
-            rootViewContact.addView(ViewFactory.createView(getContext(), cell, rootViewContact));
+            rootViewContact.addView(ContactViewFactory.createView(getContext(), cell, rootViewContact));
         }
     }
 
