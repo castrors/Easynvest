@@ -63,11 +63,8 @@ public class ContactFragment extends Fragment implements ContactContract.View {
         ContactScreenData contactScreenData = Repository.providesContactRepository().getContactScreenData(getContext());
 
         for (Cell cell : contactScreenData.getCells()) {
-            if (cell.getType() == Cell.EDIT_TEXT || cell.getType() == Cell.TEXT_VIEW) {
-                rootViewContact.addView(ViewFactory.createView(getContext(), cell));
-            }
+            rootViewContact.addView(ViewFactory.createView(getContext(), cell, rootViewContact));
         }
-
     }
 
     @Override

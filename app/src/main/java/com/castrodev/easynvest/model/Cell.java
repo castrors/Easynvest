@@ -41,7 +41,7 @@ public class Cell {
     @SerializedName("required")
     private Boolean required;
     @SerializedName("show")
-    private Object show;
+    private int show;
     @SerializedName("topSpacing")
     private Double topSpacing;
     @SerializedName("type")
@@ -81,11 +81,11 @@ public class Cell {
         this.required = required;
     }
 
-    public Object getShow() {
+    public int getShow() {
         return show;
     }
 
-    public void setShow(Object show) {
+    public void setShow(int show) {
         this.show = show;
     }
 
