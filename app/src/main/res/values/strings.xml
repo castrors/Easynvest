@@ -3,14 +3,11 @@
     <string name="title_investment">Investimento</string>
     <string name="title_contact">Contato</string>
     <string name="title_notifications">Notifications</string>
-    <string name="investment_fund">Fundos de investimento</string>
-    <string name="what_is_it">O que é?</string>
-    <string name="investment_risk">Grau de risco do investimento</string>
-    <string name="investment_more_information">Mais informações sobre o investimento</string>
     <string name="fund">Fundo</string>
     <string name="cdi">CDI</string>
     <string name="monthly">No Mês</string>
     <string name="yearly">No Ano</string>
     <string name="twelve_months">12 meses</string>
     <string name="invest">Investir</string>
+    <string name="download">Baixar</string>
 </resources>

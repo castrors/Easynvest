@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/investment_fund" />
+            tools:text="Fundos de investimento" />
 
         <TextView
             android:id="@+id/investment_subtitle"
@@ -26,14 +26,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            tools:text="Vinci Valorem FI Multimercado"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            tools:text="Vinci Valorem FI Multimercado" />
 
         <TextView
+            android:id="@+id/investment_what_is_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="@string/what_is_it" />
+            tools:text="O que é?" />
 
         <TextView
             android:id="@+id/investment_what_is_value"
@@ -51,10 +52,11 @@
             android:background="@color/colorAccent" />
 
         <TextView
+            android:id="@+id/investment_risk_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/investment_risk" />
+            tools:text="Grau de risco do investimento" />
 
         <View
             android:id="@+id/investment_risk_level"
@@ -65,10 +67,11 @@
             android:background="@color/colorAccent" />
 
         <TextView
+            android:id="@+id/investment_info_risk_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/investment_more_information" />
+            tools:text="Mains informações sobre o investimento" />
 
         <include layout="@layout/more_information_fund_cdi" />
 
@@ -76,6 +79,7 @@
             android:id="@+id/root_view_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
             android:orientation="vertical" />
 
 

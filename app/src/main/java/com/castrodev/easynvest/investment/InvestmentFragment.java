@@ -6,9 +6,21 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.castrodev.easynvest.R;
+import com.castrodev.easynvest.model.Info;
+import com.castrodev.easynvest.model.InvestmentScreenData;
+import com.castrodev.easynvest.model.MoreInfo;
+import com.castrodev.easynvest.model.MoreInfoDetail;
+import com.castrodev.easynvest.model.Screen;
+import com.castrodev.easynvest.repository.Repository;
 
+import java.util.List;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -16,6 +28,35 @@ import butterknife.ButterKnife;
  */
 
 public class InvestmentFragment extends Fragment implements InvestmentContract.View {
+
+    public static final String PERCENTAGE_FORMAT = "%s%%";
+    @BindView(R.id.investment_title)
+    TextView textViewInvestmentTitle;
+    @BindView(R.id.investment_subtitle)
+    TextView textViewInvestmentSubtitle;
+    @BindView(R.id.investment_what_is_title)
+    TextView textViewWhatIsTitle;
+    @BindView(R.id.investment_what_is_value)
+    TextView textViewWhatIsValue;
+    @BindView(R.id.investment_risk_title)
+    TextView textViewInvestmentRiskTitle;
+    @BindView(R.id.investment_info_risk_title)
+    TextView textViewInvestmentInfoRiskTitle;
+    @BindView(R.id.monthly_fund_value)
+    TextView textViewMonthlyFund;
+    @BindView(R.id.monthly_cdi_value)
+    TextView textViewMonthlyCDI;
+    @BindView(R.id.yearly_fund_value)
+    TextView textViewYearlyFund;
+    @BindView(R.id.yearly_cdi_value)
+    TextView textViewYearlyCDI;
+    @BindView(R.id.twelve_months_fund_value)
+    TextView textViewTwelveMonthsFund;
+    @BindView(R.id.twelve_months_cdi_value)
+    TextView textViewTwelveMonthsCDI;
+    @BindView(R.id.root_view_info)
+    LinearLayout rootViewInfo;
+
     private InvestmentContract.UserActionsListener mActionListener;
 
     public static InvestmentFragment newInstance() {
@@ -49,6 +90,64 @@ public class InvestmentFragment extends Fragment implements InvestmentContract.V
     }
 
     private void setupView() {
+
+        InvestmentScreenData investmentScreenData = Repository.providesInvestmentRepository().getInvestmentScreenData(getContext());
+
+        Screen screen = investmentScreenData.getScreen();
+
+        textViewInvestmentTitle.setText(screen.getTitle());
+        textViewInvestmentSubtitle.setText(screen.getFundName());
+        textViewWhatIsTitle.setText(screen.getWhatIs());
+        textViewWhatIsValue.setText(screen.getDefinition());
+        textViewInvestmentRiskTitle.setText(screen.getRiskTitle());
+        textViewInvestmentInfoRiskTitle.setText(screen.getInfoTitle());
+
+        MoreInfo moreInfo = screen.getMoreInfo();
+
+        MoreInfoDetail month = moreInfo.getMonth();
+        textViewMonthlyFund.setText(String.format(PERCENTAGE_FORMAT, month.getFund().toString()));
+        textViewMonthlyCDI.setText(String.format(PERCENTAGE_FORMAT, month.getCDI().toString()));
+
+        MoreInfoDetail year = moreInfo.getYear();
+        textViewYearlyFund.setText(String.format(PERCENTAGE_FORMAT, year.getFund().toString()));
+        textViewYearlyCDI.setText(String.format(PERCENTAGE_FORMAT, year.getCDI().toString()));
+
+        MoreInfoDetail twelvemonths = moreInfo.getTwelvemonths();
+        textViewTwelveMonthsFund.setText(String.format(PERCENTAGE_FORMAT, twelvemonths.getFund().toString()));
+        textViewTwelveMonthsCDI.setText(String.format(PERCENTAGE_FORMAT, twelvemonths.getCDI().toString()));
+
+        List<Info> infoList = screen.getInfo();
+        for (Info info : infoList) {
+
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.item_investment_info, null);
+            TextView textViewInvestmentInfoTitle = ButterKnife.findById(view, R.id.investment_info_title);
+            TextView textViewInvestmentInfoValue = ButterKnife.findById(view, R.id.investment_info_value);
+            textViewInvestmentInfoTitle.setText(info.getName());
+            textViewInvestmentInfoValue.setText(info.getData());
+            view.setPadding(0, 24, 0, 0);
+
+            rootViewInfo.addView(view);
+        }
+
+        List<Info> downInfoList = screen.getDownInfo();
+        for (final Info downInfo : downInfoList) {
+
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.item_investment_download_info, null);
+            TextView textViewInvestmentInfoDownloadTitle = ButterKnife.findById(view, R.id.investment_info_download_title);
+            TextView textViewInvestmentInfoDownloadData = ButterKnife.findById(view, R.id.investment_info_download_data);
+            textViewInvestmentInfoDownloadTitle.setText(downInfo.getName());
+            textViewInvestmentInfoDownloadData.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(getContext(), "Baixando " + downInfo.getName() + " data:  " + downInfo.getData(), Toast.LENGTH_SHORT).show();
+                }
+            });
+            view.setPadding(0, 24, 0, 0);
+
+            rootViewInfo.addView(view);
+        }
+
+
     }
 
     @Override

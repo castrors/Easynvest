@@ -14,7 +14,7 @@ public class Screen {
     @SerializedName("definition")
     private String definition;
     @SerializedName("downInfo")
-    private List<DownInfo> downInfo;
+    private List<Info> downInfo;
     @SerializedName("fundName")
     private String fundName;
     @SerializedName("graph")
@@ -42,11 +42,11 @@ public class Screen {
         this.definition = definition;
     }
 
-    public List<DownInfo> getDownInfo() {
+    public List<Info> getDownInfo() {
         return downInfo;
     }
 
-    public void setDownInfo(List<DownInfo> downInfo) {
+    public void setDownInfo(List<Info> downInfo) {
         this.downInfo = downInfo;
     }
 
