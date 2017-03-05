@@ -65,6 +65,10 @@ public class ContactFragment extends Fragment implements ContactContract.View {
         for (Cell cell : contactScreenData.getCells()) {
             rootViewContact.addView(ContactViewFactory.createView(getContext(), cell, rootViewContact));
         }
+
+        final float scale = getResources().getDisplayMetrics().density;
+        int margin = (int) (16 * scale + 0.5f);
+        rootViewContact.setPadding(margin, margin, margin, margin);
     }
 
     @Override

@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,6 +58,20 @@ public class InvestmentFragment extends Fragment implements InvestmentContract.V
     TextView textViewTwelveMonthsCDI;
     @BindView(R.id.root_view_info)
     LinearLayout rootViewInfo;
+
+    @BindView(R.id.radio_group_risk)
+    RadioGroup radioGroupRisk;
+    @BindView(R.id.radio_risk_level_1)
+    RadioButton radioRiskLevel1;
+    @BindView(R.id.radio_risk_level_2)
+    RadioButton radioRiskLevel2;
+    @BindView(R.id.radio_risk_level_3)
+    RadioButton radioRiskLevel3;
+    @BindView(R.id.radio_risk_level_4)
+    RadioButton radioRiskLevel4;
+    @BindView(R.id.radio_risk_level_5)
+    RadioButton radioRiskLevel5;
+
 
     private InvestmentContract.UserActionsListener mActionListener;
 
@@ -116,6 +132,9 @@ public class InvestmentFragment extends Fragment implements InvestmentContract.V
         textViewTwelveMonthsFund.setText(String.format(PERCENTAGE_FORMAT, twelvemonths.getFund().toString()));
         textViewTwelveMonthsCDI.setText(String.format(PERCENTAGE_FORMAT, twelvemonths.getCDI().toString()));
 
+
+        radioGroupRisk.check(findViewToSetSelected(screen.getRisk().intValue()));
+
         List<Info> infoList = screen.getInfo();
         for (Info info : infoList) {
 
@@ -148,6 +167,22 @@ public class InvestmentFragment extends Fragment implements InvestmentContract.V
         }
 
 
+    }
+
+    private int findViewToSetSelected(int tag) {
+        switch (tag) {
+            case 1:
+                return radioRiskLevel1.getId();
+            case 2:
+                return radioRiskLevel2.getId();
+            case 3:
+                return radioRiskLevel3.getId();
+            case 4:
+                return radioRiskLevel4.getId();
+            case 5:
+                return radioRiskLevel5.getId();
+        }
+        return -1;
     }
 
     @Override

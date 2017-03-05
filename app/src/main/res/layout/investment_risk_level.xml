@@ -1,0 +1,52 @@
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/radio_group_risk"
+    android:layout_width="match_parent"
+    android:layout_height="12dp"
+    android:orientation="horizontal">
+
+    <RadioButton
+        android:id="@+id/radio_risk_level_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/riskLevel1"
+        android:button="@drawable/selector_custom_radio_buttom"
+        android:clickable="false" />
+
+    <RadioButton
+        android:id="@+id/radio_risk_level_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/riskLevel2"
+        android:button="@drawable/selector_custom_radio_buttom"
+        android:clickable="false" />
+
+    <RadioButton
+        android:id="@+id/radio_risk_level_3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/riskLevel3"
+        android:button="@drawable/selector_custom_radio_buttom"
+        android:clickable="false" />
+
+    <RadioButton
+        android:id="@+id/radio_risk_level_4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/riskLevel4"
+        android:button="@drawable/selector_custom_radio_buttom"
+        android:clickable="false"
+        android:gravity="center" />
+
+    <RadioButton
+        android:id="@+id/radio_risk_level_5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/riskLevel5"
+        android:button="@drawable/selector_custom_radio_buttom"
+        android:clickable="false" />
+</RadioGroup>

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.content.ContextCompat;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -64,7 +66,10 @@ public class ContactViewFactory {
             case Cell.BUTTON:
 
                 Button button = new Button(context);
+                button.setBackground(ContextCompat.getDrawable(context, R.drawable.selector_round_shape));
                 button.setText(cell.getMessage());
+                button.setGravity(Gravity.CENTER);
+                button.setTextColor(ContextCompat.getColor(context, R.color.textWhite));
                 view = setCommonAttributes(context, cell, button);
                 break;
         }
