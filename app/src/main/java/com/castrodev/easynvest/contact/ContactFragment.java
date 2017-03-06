@@ -81,11 +81,11 @@ public class ContactFragment extends Fragment implements ContactContract.View {
 
     @Override
     public void setProgressIndicator(boolean active) {
-
+        //TODO handle request from API
     }
 
     @Override
     public void showContactData() {
-
+        //TODO handle result from from API
     }
 }

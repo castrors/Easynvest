@@ -7,16 +7,11 @@ package com.castrodev.easynvest.contact;
 public class ContactContract {
 
     interface View {
-
         void setProgressIndicator(boolean active);
         void showContactData();
-
     }
 
     interface UserActionsListener {
-
         void submitData();
-        void sendNewMessage();
-
     }
 }

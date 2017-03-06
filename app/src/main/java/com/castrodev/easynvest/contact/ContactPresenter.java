@@ -3,7 +3,6 @@ package com.castrodev.easynvest.contact;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.widget.Toast;
 
 import com.castrodev.easynvest.SuccessActivity;
 
@@ -26,13 +25,8 @@ public class ContactPresenter implements ContactContract.UserActionsListener {
 
     @Override
     public void submitData() {
-        Toast.makeText(context, "SubmitData", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(context, SuccessActivity.class);
         context.startActivity(intent);
     }
 
-    @Override
-    public void sendNewMessage() {
-
-    }
 }

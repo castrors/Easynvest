@@ -299,11 +299,12 @@ public class InvestmentFragment extends Fragment implements InvestmentContract.V
 
     @Override
     public void setProgressIndicator(boolean active) {
-
+        //TODO handle request from API
     }
 
     @Override
     public void showInvestentData() {
+        //TODO handle result from from API
 
     }
 }
