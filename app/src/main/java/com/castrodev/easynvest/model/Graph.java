@@ -12,25 +12,25 @@ import javax.annotation.Generated;
 public class Graph {
 
     @SerializedName("CDI")
-    private List<Double> CDI;
+    private List<Float> CDI;
     @SerializedName("fund")
-    private List<Double> fund;
+    private List<Float> fund;
     @SerializedName("x")
     private List<String> x;
 
-    public List<Double> getCDI() {
+    public List<Float> getCDI() {
         return CDI;
     }
 
-    public void setCDI(List<Double> CDI) {
+    public void setCDI(List<Float> CDI) {
         this.CDI = CDI;
     }
 
-    public List<Double> getFund() {
+    public List<Float> getFund() {
         return fund;
     }
 
-    public void setFund(List<Double> fund) {
+    public void setFund(List<Float> fund) {
         this.fund = fund;
     }
 

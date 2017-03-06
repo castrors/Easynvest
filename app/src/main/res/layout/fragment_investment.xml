@@ -44,12 +44,12 @@
             android:layout_marginRight="16dp"
             tools:text="O Fundo tem por objetivo proporcionar aos seus cotistas rentabilidade no longo prazo através de investimentos." />
 
-        <View
+        <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/investment_graph"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_marginTop="16dp"
-            android:background="@color/colorAccent" />
+            />
 
         <TextView
             android:id="@+id/investment_risk_title"
