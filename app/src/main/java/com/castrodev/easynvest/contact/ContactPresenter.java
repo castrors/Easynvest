@@ -1,6 +1,11 @@
 package com.castrodev.easynvest.contact;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.widget.Toast;
+
+import com.castrodev.easynvest.SuccessActivity;
 
 import static com.google.gson.internal.$Gson$Preconditions.checkNotNull;
 
@@ -11,15 +16,19 @@ import static com.google.gson.internal.$Gson$Preconditions.checkNotNull;
 public class ContactPresenter implements ContactContract.UserActionsListener {
 
     @NonNull
-    private final ContactContract.View mHistoryView;
+    private final ContactContract.View contactView;
+    private final Context context;
 
-    public ContactPresenter(@NonNull ContactContract.View view) {
-        mHistoryView = checkNotNull(view);
+    public ContactPresenter(Context context, @NonNull ContactContract.View view) {
+        contactView = checkNotNull(view);
+        this.context = context;
     }
 
     @Override
     public void submitData() {
-
+        Toast.makeText(context, "SubmitData", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(context, SuccessActivity.class);
+        context.startActivity(intent);
     }
 
     @Override

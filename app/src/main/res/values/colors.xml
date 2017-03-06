@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimaryLight">#4A90E2</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
@@ -12,4 +13,6 @@
     <color name="riskLevel3">#FFC011</color>
     <color name="riskLevel4">#FF742C</color>
     <color name="riskLevel5">#FF3634</color>
+
+
 </resources>

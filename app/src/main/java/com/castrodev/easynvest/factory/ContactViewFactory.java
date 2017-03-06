@@ -23,10 +23,11 @@ import com.squareup.picasso.Picasso;
  */
 
 public class ContactViewFactory {
-    public static View createView(final Context context, final Cell cell, final LinearLayout rootView) {
+    public static View createView(final Context context, final Cell cell, final LinearLayout rootView, View.OnClickListener submitClickListener) {
         View view = null;
         switch (cell.getType()) {
             case Cell.EDIT_TEXT:
+
                 TextInputLayout textInputLayout = new TextInputLayout(context);
                 textInputLayout.setHint(cell.getMessage());
                 textInputLayout.setLayoutParams(setLayoutDimensions());
@@ -69,6 +70,7 @@ public class ContactViewFactory {
                 button.setBackground(ContextCompat.getDrawable(context, R.drawable.selector_round_shape));
                 button.setText(cell.getMessage());
                 button.setGravity(Gravity.CENTER);
+                button.setOnClickListener(submitClickListener);
                 button.setTextColor(ContextCompat.getColor(context, R.color.textWhite));
                 view = setCommonAttributes(context, cell, button);
                 break;

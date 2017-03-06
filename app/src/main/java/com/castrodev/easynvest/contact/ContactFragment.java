@@ -26,7 +26,14 @@ public class ContactFragment extends Fragment implements ContactContract.View {
     @BindView(R.id.root_view_contact)
     LinearLayout rootViewContact;
 
-    private ContactContract.UserActionsListener mActionListener;
+    private ContactContract.UserActionsListener userActionListener;
+
+    private View.OnClickListener submitClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            userActionListener.submitData();
+        }
+    };
 
     public static ContactFragment newInstance() {
         return new ContactFragment();
@@ -38,7 +45,7 @@ public class ContactFragment extends Fragment implements ContactContract.View {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mActionListener = new ContactPresenter(this);
+        userActionListener = new ContactPresenter(getContext(), this);
     }
 
     @Override
@@ -53,6 +60,7 @@ public class ContactFragment extends Fragment implements ContactContract.View {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_contact, container, false);
         ButterKnife.bind(this, root);
+
         setupView();
 
         return root;
@@ -63,7 +71,7 @@ public class ContactFragment extends Fragment implements ContactContract.View {
         ContactScreenData contactScreenData = Repository.providesContactRepository().getContactScreenData(getContext());
 
         for (Cell cell : contactScreenData.getCells()) {
-            rootViewContact.addView(ContactViewFactory.createView(getContext(), cell, rootViewContact));
+            rootViewContact.addView(ContactViewFactory.createView(getContext(), cell, rootViewContact, submitClickListener));
         }
 
         final float scale = getResources().getDisplayMetrics().density;
